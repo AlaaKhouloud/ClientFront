@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginAuthService } from '../../login-auth.service';
+
 
 @Component({
   selector: 'app-create-recharge',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateRechargeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: LoginAuthService) {
+      this.authService.isLoggedIn();
+  }
 
   ngOnInit() {
   }

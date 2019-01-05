@@ -1,12 +1,12 @@
 
 <h1>E-Banking Client</h1>
 
-<nav class="nav">
+<nav class="nav" *ngIf="currentStatus.status">
 	<ul>
-		<li><a [routerLink] = "['/login']" routerLinkActive="active">Connexion</a>
-    <li><a [routerLink] = "['/home']" routerLinkActive="active">Home</a>
+		<li><a [routerLink] = "['/home']" routerLinkActive="active">Home</a>
 		<li><a [routerLink] = "['/virements']" routerLinkActive="active">Virements</a>
 		<li><a [routerLink] = "['/recharges']" routerLinkActive="active">Recharges Téléphoniques</a>
+		<li><a [routerLink] = "['/logout']" (click)="logout()" routerLinkActive="active">Déconnexion</a>
 	</ul>
 </nav>
 <router-outlet></router-outlet>
@@ -16,3 +16,4 @@
       </div>
 		</div>
 </div>
+<!--*ngIf="!currentstatus.status"-->

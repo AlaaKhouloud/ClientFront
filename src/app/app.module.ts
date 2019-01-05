@@ -12,20 +12,24 @@ import { DetailsCompteComponent } from './compte/details-compte/details-compte.c
 import { ListRechargesComponent } from './compte/list-recharges/list-recharges.component';
 import { ListVirementsComponent } from './compte/list-virements/list-virements.component';
 import { ListComptesComponent } from './compte/list-comptes/list-comptes.component';
-import { AuthGuardService } from './guards/auth-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
+import { LoginAuthService } from './login-auth.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 import { UserService } from './user.service';
 
 
+
 const appRoutes : Routes = [
-  {path:'**' , redirectTo:'login' , pathMatch:'full'},
-  {path:'compte' , component:DetailsCompteComponent},
-  {path:'virements' , component:ListVirementsComponent},
-  {path:'recharges' , component:ListRechargesComponent},
-  {path:'sendVirement' , component:CreateVirementComponent},
-  {path:'sendRecharge' , component:CreateRechargeComponent},
+  {path:'errorPage' , component:ErrorPageComponent},
+  {path:'compte' , component:DetailsCompteComponent , canActivate: [ AuthGuardService ]},
+  {path:'virements' , component:ListVirementsComponent , canActivate: [ AuthGuardService ]},
+  {path:'recharges' , component:ListRechargesComponent , canActivate: [ AuthGuardService ]},
+  {path:'sendVirement' , component:CreateVirementComponent , canActivate: [ AuthGuardService ]},
+  {path:'sendRecharge' , component:CreateRechargeComponent , canActivate: [ AuthGuardService ]},
   {path:'login' , component:LoginComponent},
   {path:'home' , component:ListComptesComponent , canActivate: [ AuthGuardService ]  },
+  {path:'**'  , pathMatch:'full' , redirectTo:'errorPage'},
 ];
 
 @NgModule({
@@ -37,7 +41,8 @@ const appRoutes : Routes = [
     DetailsCompteComponent,
     ListRechargesComponent,
     ListVirementsComponent,
-    ListComptesComponent, 
+    ListComptesComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,7 @@ const appRoutes : Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService , AuthGuardService],
+  providers: [UserService , AuthGuardService , LoginAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

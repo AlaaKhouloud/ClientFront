@@ -1,3 +1,22 @@
-<p>
-  list-comptes works!
-</p>
+<div class="main">
+
+        <section class="sign-in">
+            <div class="container">
+                <p>Vos Comptes</p>
+                <table>
+                  <tr>
+                    <td>N°</td>
+                    <td>RIB</td>
+                    <td>Agence</td>
+                    <td>Etat</td>
+                  <tr>
+                  <tr *ngFor="let record of users ; let i = index">
+                     <td>Compte {{i}}</td>
+                     <td>{{record.rib}}</td>
+                     <td>{{record.agence['nom']}}</td>
+                     <td>{{record.etat}}</td>
+                  <tr>
+                </table>
+            </div>
+        </section>
+</div>
