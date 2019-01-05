@@ -3,24 +3,25 @@ import { LoginAuthService } from '../../login-auth.service';
 import { UserService } from '../../user.service';
 
 @Component({
-  selector: 'app-list-comptes',
-  templateUrl: './list-comptes.component.html',
-  styleUrls: ['./list-comptes.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class ListComptesComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
   public logginuser: any = {};
-  public comptes: any = [];
+  public infos: any = [];
+
   constructor(private authService: LoginAuthService , private userService: UserService) {
       this.authService.isLoggedIn();
       this.logginuser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    this.userService.getAllComptes(this.logginuser).subscribe(
+    this.userService.getmycpt(this.logginuser).subscribe(
       result => {
         console.log(result.body);
-        this.comptes = result.body;
+        this.infos = result.body;
       },
       error => {
           console.log(error);

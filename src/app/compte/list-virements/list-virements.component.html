@@ -1,3 +1,27 @@
-<p>
-  list-virements works!
-</p>
+<div class="main">
+
+        <section class="sign-in">
+            <div class="container">
+                <p>Vos Virements</p>
+                <div class="form-group form-button">
+                    <input type="submit" name="add" id="add" class="form-submit" (click)="AddVirement()" value="Ajouter un nouveau virement"/>
+                </div>
+                <table>
+                  <tr>
+                    <td>N°</td>
+                    <td>To RIB</td>
+                    <td>Date</td>
+                    <td>Etat</td>
+                    <td>Montant</td>
+                  <tr>
+                  <tr *ngFor="let record of virements ; let i = index">
+                     <td>Virement {{i}}</td>
+                     <td>{{record.to_RIB}}</td>
+                     <td>{{record.date_virement}}</td>
+                     <td>{{record.etat_virement}}</td>
+                     <td>{{record.montant}}DH</td>
+                  <tr>
+                </table>
+            </div>
+        </section>
+</div>

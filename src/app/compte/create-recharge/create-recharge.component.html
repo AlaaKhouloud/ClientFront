@@ -1,3 +1,36 @@
-<p>
-  create-recharge works!
-</p>
+
+<div class="main">
+
+        <section class="sign-in">
+            <div class="container">
+              <p>
+                create-recharge works!
+              </p>
+
+            </div>
+            <div class="signin-form">
+                <h2 class="form-title">Envoyer une recharge</h2>
+                <form class="register-form" id="login-form" (submit)="addRecharge($event)">
+                    <div class="form-group">
+                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="ribfrom" id="ribfrom" placeholder="Your Rib" [(ngModel)] = "recharge.ribfrom"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="text" name="ribfrom" id="ribfrom" placeholder="rib to" [(ngModel)] = "recharge.telto"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="number" name="montant" id="montant" placeholder="montant" [(ngModel)] = "recharge.montant"/>
+                    </div>
+                    <div *ngIf="show">Informations incorrectes</div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" id="signin" class="form-submit" (click)="loginUser(virement)" value="Log in"/>
+                    </div>
+                </form>
+                <div class="social-login">
+                    <span class="social-label">{{message}}</span>
+                </div>
+            </div>
+        </section>
+</div>

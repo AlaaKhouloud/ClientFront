@@ -17,6 +17,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { LoginAuthService } from './login-auth.service';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { UserService } from './user.service';
+import { ProfileComponent } from './compte/profile/profile.component';
 
 
 
@@ -29,6 +30,7 @@ const appRoutes : Routes = [
   {path:'sendRecharge' , component:CreateRechargeComponent , canActivate: [ AuthGuardService ]},
   {path:'login' , component:LoginComponent},
   {path:'home' , component:ListComptesComponent , canActivate: [ AuthGuardService ]  },
+  {path:'profile' , component:ProfileComponent , canActivate: [ AuthGuardService ]  },
   {path:'**'  , pathMatch:'full' , redirectTo:'errorPage'},
 ];
 
@@ -43,6 +45,7 @@ const appRoutes : Routes = [
     ListVirementsComponent,
     ListComptesComponent,
     ErrorPageComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginAuthService } from '../../login-auth.service';
-
+import { UserService } from '../../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-virements',
@@ -9,11 +10,30 @@ import { LoginAuthService } from '../../login-auth.service';
 })
 export class ListVirementsComponent implements OnInit {
 
-  constructor(private authService: LoginAuthService) {
+  public logginuser: any = {};
+  public virements: any = [];
+  constructor(private authService: LoginAuthService , private userService: UserService , private router: Router ) {
       this.authService.isLoggedIn();
+      this.logginuser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    this.userService.getAllVirements(this.logginuser).subscribe(
+      result => {
+        console.log(result.body);
+        this.virements = result.body;
+      },
+      error => {
+          console.log(error);
+      },
+      () => {
+          console.log("i was here");
+      }
+   );
+  }
+
+  AddVirement(){
+    this.router.navigate(['/sendVirement']);
   }
 
 }

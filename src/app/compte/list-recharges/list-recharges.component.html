@@ -1,3 +1,25 @@
-<p>
-  list-recharges works!
-</p>
+<div class="main">
+
+        <section class="sign-in">
+            <div class="container">
+                <p>Vos Virements</p>
+                <div class="form-group form-button">
+                    <input type="submit" name="add" id="add" class="form-submit" (click)="AddRecharge()" value="Ajouter un nouveau Recharge"/>
+                </div>
+                <table>
+                  <tr>
+                    <td>N°</td>
+                    <td>Date de recharge</td>
+                    <td>To telephone</td>
+                    <td>Montant</td>
+                  <tr>
+                  <tr *ngFor="let record of recharges ; let i = index">
+                     <td>Virement {{i}}</td>
+                     <td>{{record.date_recharge}}</td>
+                     <td>{{record.totelephone}}</td>
+                     <td>{{record.montant}}DH</td>
+                  <tr>
+                </table>
+            </div>
+        </section>
+</div>
