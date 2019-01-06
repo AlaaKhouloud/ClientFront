@@ -1,6 +1,42 @@
 
 <div class="main">
 
+    <section class="sign-in">
+        <div class="container">
+
+
+        </div>
+        <div class="signin-form">
+            <h2 class="form-title">Envoyer une recharge</h2>
+            
+            <div class="form-group">
+                    choississez un rib 
+                    <select id="infos" [(ngModel)] = "virement.ribfrom" class="form-control">
+
+                        <option *ngFor="let method of  infos" [value]="method.rib">{{method.rib}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                    <input type="text"  placeholder="rib to" [(ngModel)] = "virement.telto"/>
+                </div>
+                <div class="form-group">
+                    <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                    <input type="text"  placeholder="montant" [(ngModel)] = "virement.montant"/>
+                </div>
+                <div *ngIf="show">Informations incorrectes</div>
+                <div class="form-group form-button">
+                    <button (click)="addVirement()">recharge</button>
+                </div>
+           
+            <div class="social-login">
+                <span class="social-label">{{recharge |json}}</span>
+            </div>
+        </div>
+    </section>
+</div>
+<!--<div class="main">
+
         <section class="sign-in">
             <div class="container">
               <p>
@@ -34,3 +70,4 @@
             </div>
         </section>
 </div>
+-->

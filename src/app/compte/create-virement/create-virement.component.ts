@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginAuthService } from '../../login-auth.service';
 import { UserService } from '../../user.service';
+import { Virement } from 'src/model/model.virement';
 
 
 @Component({
@@ -12,14 +13,15 @@ export class CreateVirementComponent implements OnInit {
 
   public logginuser: any = {};
   public recapitulatif: any = [];
-
+  infos: any;
+  virement:Virement=new Virement();
   constructor(private authService: LoginAuthService , private userService: UserService) {
       this.authService.isLoggedIn();
       this.logginuser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    this.userService.getmycpt(this.logginuser).subscribe(
+    this.userService.getAllComptes(this.logginuser).subscribe(
       result => {
         console.log(result.body);
         this.infos = result.body;
@@ -33,8 +35,12 @@ export class CreateVirementComponent implements OnInit {
    );
   }
 
-  addVirement(virement: any){
-    this.userService.putVirement(this.logginuser , virement).subscribe(
+  addVirement(){
+    console.log("????????????????????????????????????");
+   
+    console.log( this.virement);
+    console.log("????????????????????????????????????");
+    this.userService.putVirement(this.logginuser , this.virement).subscribe(
       result => {
         console.log(result.body);
         this.recapitulatif = result.body;
