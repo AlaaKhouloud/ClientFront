@@ -14,6 +14,8 @@ export class CreateRechargeComponent implements OnInit {
   public logginuser: any = {};
   public recapitulatif: any = [];
   infos: any;
+  public show: boolean = false;
+  public temp: boolean = false;
   recharge:Recharge=new Recharge();
   ContactMethods=[{id:1,name:'email'},{id:2,name:'telephone'},{id:2,name:'sms'}];
 
@@ -45,9 +47,11 @@ export class CreateRechargeComponent implements OnInit {
       result => {
         console.log(result.body);
         this.recapitulatif = result.body;
+        this.show = true;
       },
       error => {
           console.log(error);
+          this.temp = true;
       },
       () => {
           console.log("i was here");

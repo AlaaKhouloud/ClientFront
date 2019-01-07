@@ -21,6 +21,10 @@ export class ListComptesComponent implements OnInit {
       result => {
         console.log(result.body);
         this.comptes = result.body;
+        console.log("44444444444444444444444444444444444444");
+        console.log(this.comptes);
+        console.log("44444444444444444444444444444444444444");
+
       },
       error => {
           console.log(error);

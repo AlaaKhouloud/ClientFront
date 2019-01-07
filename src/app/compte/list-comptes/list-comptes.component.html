@@ -1,22 +1,50 @@
-<div class="main">
+<br/>
+<br/>
+<br/>
+<div class="row">
 
-        <section class="sign-in">
-            <div class="container">
-                <p>Vos Comptes</p>
-                <table>
+        <div class="col-md-3 " >
+                <br/>
+                <br/>
+               
+    <div class="card border-primary mb-3" >
+        <div class="card-header">Your informations</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title"><strong>{{logginuser.nom}} {{logginuser.prenom}}</strong></h5>
+          
+          <p ><span class="glyphicon glyphicon-envelope"></span>     {{logginuser.email}}</p>
+          <p ><span class="glyphicon glyphicon-user"></span>         {{logginuser.cin}}</p>
+          <p ><span class="glyphicon glyphicon-home"></span>         {{logginuser.pays}}</p>
+          <p ><span class="glyphicon glyphicon-home"></span>         {{logginuser.ville}}</p>
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-md-6 offset-md-1 main"><div class="main">
+
+       
+        <h3 class="w3l-title"><span>Vos</span>Recharges</h3>
+                <table class="table table-striped">
                   <tr>
                     <td>N°</td>
                     <td>RIB</td>
-                    <td>Agence</td>
                     <td>Etat</td>
+                    <td>date_creation_compte</td>
+                    <td>money</td>
+                    <td>money_for_transactions</td>
                   <tr>
                   <tr *ngFor="let record of comptes ; let i = index">
-                     <td>Compte {{i}}</td>
+                     <td>{{record.id_compte}}</td>
                      <td>{{record.rib}}</td>
-                     <td>{{record.agence['nom']}}</td>
+                     
                      <td>{{record.etat}}</td>
+                     <td>{{record.date_creation_compte}}</td>
+                     <td>{{record.money}}</td>
+                     <td>{{record.money_for_transactions}}</td>
+                    
                   <tr>
                 </table>
             </div>
-        </section>
+       
+</div>
 </div>

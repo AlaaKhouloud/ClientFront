@@ -2,11 +2,13 @@
 
         <section class="sign-in">
             <div class="container">
-                <p>Vos Virements</p>
-                <div class="form-group form-button">
-                    <input type="submit" name="add" id="add" class="form-submit" (click)="AddVirement()" value="Ajouter un nouveau virement"/>
-                </div>
-                <table>
+                    <h3 class="w3l-title"><span>Vos</span>Virements
+
+                
+                    <input type="submit" name="add" id="add" class="btn btn-primary pull-right" (click)="AddVirement()" value="Nouveau virement"/>
+                </h3>
+             
+                <table class="table table-striped">
                   <tr>
                     <td>N°</td>
                     <td>To RIB</td>
@@ -22,6 +24,7 @@
                      <td>{{record.montant}}DH</td>
                   <tr>
                 </table>
+              
             </div>
         </section>
 </div>

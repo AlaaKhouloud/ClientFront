@@ -1,4 +1,4 @@
-<div class="main">
+<!---<div class="main">
 
         <section class="sign-in">
             <div class="container">
@@ -37,3 +37,76 @@
         </section>
 
     </div>
+-->
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<div div class="container">
+<div class="row align-items-center justify-content-between d-flex">
+        <div id="logo">
+         <h1><img src="../assets/images/logo.png" alt="" title="" />E-Banking</h1>
+        </div>
+
+
+<form class="form-inline" id="login-form" (submit)="loginUser($event)">
+        
+        <label class="sr-only" for="inlineFormInputGroupUsername2">Email</label>
+        <div class="input-group mb-2 mr-sm-2">
+        
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" [(ngModel)] = "user.email">
+        </div>
+        <label class="sr-only" for="inlineFormInputName2">Name</label>
+        <input type="password" class="form-control mb-2 mr-sm-2" name="password" id="password" placeholder="Password" [(ngModel)] = "user.password">
+        <input type="submit" class="btn btn-primary mb-2"  name="signin" id="signin"  (click)="loginUser(user,userForm)" value="Log in"/>
+
+        <div class="form-check mb-2 mr-sm-2">
+          <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+          <label class="form-check-label" for="inlineFormCheck">
+            Remember me
+          </label>
+        </div>
+      
+      </form></div>
+    </div>
+      <section class="banner-area relative" >
+		<div class="container">
+					  <div class="row fullscreen d-flex align-items-center justify-content-end">
+						  <div class="banner-content col-lg-7 col-md-12">
+							  <h4 class="text-uppercase">Online Banking</h4>
+							  <h1>
+								SAVE , SECURE , AND CONVENIENT BANKING 					
+							  </h1>
+							
+                                
+							  <a href="#" class="primary-btn header-btn text-uppercase"> WHEREVER YOU ARE 
+                                    , WHERNEVER YOU NEED US </a>
+						  </div>												
+					  </div>
+                  </div>    
+                  
+                </section>
