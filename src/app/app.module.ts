@@ -29,8 +29,8 @@ const appRoutes : Routes = [
   {path:'sendVirement' , component:CreateVirementComponent , canActivate: [ AuthGuardService ]},
   {path:'sendRecharge' , component:CreateRechargeComponent , canActivate: [ AuthGuardService ]},
   {path:'login' , component:LoginComponent},
-  {path:'home' , component:ListComptesComponent , canActivate: [ AuthGuardService ]  },
-  {path:'profile' , component:ProfileComponent , canActivate: [ AuthGuardService ]  },
+  {path:'home' , component:ListComptesComponent , canActivate: [ AuthGuardService ]  }, 
+  {path:'' , component:ListComptesComponent , canActivate: [ AuthGuardService ]  },
   {path:'**'  , pathMatch:'full' , redirectTo:'errorPage'},
 ];
 
