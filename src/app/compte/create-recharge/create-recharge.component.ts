@@ -17,7 +17,7 @@ export class CreateRechargeComponent implements OnInit {
   public show: boolean = false;
   public temp: boolean = false;
   recharge:Recharge=new Recharge();
-  ContactMethods=[{id:1,name:'email'},{id:2,name:'telephone'},{id:2,name:'sms'}];
+  RechargeMethods=[50,100,150];
 
   constructor(private authService: LoginAuthService , private userService: UserService) {
       this.authService.isLoggedIn();

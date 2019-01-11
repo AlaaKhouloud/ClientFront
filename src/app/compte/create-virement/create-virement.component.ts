@@ -16,6 +16,7 @@ export class CreateVirementComponent implements OnInit {
   infos: any;
   public show: boolean = false;
   public temp: boolean = false;
+  public echec: boolean = false;
   virement:Virement=new Virement();
   constructor(private authService: LoginAuthService , private userService: UserService) {
       this.authService.isLoggedIn();
@@ -46,7 +47,15 @@ export class CreateVirementComponent implements OnInit {
       result => {
         console.log(result.body);
         this.recapitulatif = result.body;
-        this.show = true;
+      
+        this.show = false;
+        this.echec=false;
+        if(result.body != null){
+          this.show = true;
+          }
+          else{
+            this.echec=true;
+          }
       },
       error => {
           console.log(error);

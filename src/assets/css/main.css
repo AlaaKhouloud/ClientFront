@@ -12,6 +12,40 @@ h3.w3l-title:before, h3.w3l-title:after {
 h3.w3l-title:after {
     top: 122%;
 }
+#homepage-link {
+    display: block;
+    width: 990px;
+    height: 280px;
+    padding: 40px 0 10px;
+    color: #000;
+    font-size: 22px;
+    overflow: hidden;
+    background: url(/wimg/site/group-en/en/buyer/single/404-notice.png?t=7fb78191_0) no-repeat;
+}
+#page {
+    margin: 0 auto;
+    width: 950px;
+}
+.header1 .logo {
+    float: left;
+    display: block;
+    width: 180px;
+    height: 35px;
+    }
+.header1 {
+    width: 990px;
+    padding: 20px 0 30px;
+    margin: 0 auto;
+    height: 30px;
+  
+}
+ .info-404 {
+    display: block;
+    width: 700px;
+    margin: 0 auto;
+    font-weight: 600;
+    line-height: 24px;
+}
 .textfouzia{color:white;}
 .agileits_social_list li a {
     width: 40px;

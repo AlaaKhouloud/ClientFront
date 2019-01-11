@@ -50,8 +50,22 @@
                             <button (click)="addVirement()" class="btn btn-primary">recharge</button>
                         </div>
                         </div>
-                        <div *ngIf="show">Virement a bien effectué </div>
-                        <div *ngIf="temp">Il y une erreur</div>
+                        <div *ngIf="show">
+                                <div class="alert alert-success" role="alert">
+                                        Virement a bien effectué
+                                      </div>
+                            
+                            
+                          </div>
+                        <div *ngIf="temp"><div class="alert alert-danger" role="alert">Il y une erreur</div></div>
+                        <div *ngIf="echec">
+                                <div class="alert alert-warning" role="alert">
+                                       le compte n'est pas suffisant
+                                      </div>
+                            
+                            
+                          </div>
+                       
         </div>
     </div>
 

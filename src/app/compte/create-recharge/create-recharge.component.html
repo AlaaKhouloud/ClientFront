@@ -43,7 +43,10 @@
                   <div class="form-group row">
                         <label class="col-6 col-form-label">Enter Montant</label>
                         <div class="col-6">
-                          <input class="form-control" type="text"  placeholder="montant" [(ngModel)] = "recharge.montant">
+                                <select id="RechargeMethods" [(ngModel)] = "recharge.montant" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+
+                                <option *ngFor="let method of  RechargeMethods" [value]="method">{{method}} DH</option>
+                            </select>  
                         </div>
                       </div>
                       <div class="form-group row">
@@ -51,8 +54,14 @@
                             <button (click)="addRecharge()" class="btn btn-primary">recharge</button>
                         </div>
                         </div>
-                        <div *ngIf="show">Recharge na bien effectué </div>
-                        <div *ngIf="temp">Il y une erreur</div>
+                        <div *ngIf="show"><div class="alert alert-primary" role="alert">Recharge a bien effectué </div>
+                        <div *ngIf="temp">
+                                <div class="alert alert-danger" role="alert">
+                                        Il y une erreur
+                                      </div>
+                            
+                            
+                           </div>
         </div>
     </div>
 
