@@ -7,12 +7,12 @@
         <div class="col-md-3 " >
                 <br/>
                 <br/>
-               
+
     <div class="card border-primary mb-3" >
         <div class="card-header">Your informations</div>
         <div class="card-body text-dark">
           <h5 class="card-title"><strong>{{logginuser.nom}} {{logginuser.prenom}}</strong></h5>
-          
+
           <p ><span class="glyphicon glyphicon-envelope"></span>     {{logginuser.email}}</p>
           <p ><span class="glyphicon glyphicon-user"></span>         {{logginuser.cin}}</p>
           <p ><span class="glyphicon glyphicon-home"></span>         {{logginuser.pays}}</p>
@@ -20,49 +20,46 @@
         </div>
       </div>
     </div>
-   
+
     <div class="col-md-6 offset-md-2 main">
             <div class="jumbotron">
             <div class="form-group row">
                     <label  class="col-6 col-form-label">choisir un Rib </label>
                     <div class="col-6">
-                            <select id="infos" [(ngModel)] = "recharge.ribfrom" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+                            <select id="monrib" [(ngModel)] = "recharge.ribfrom" class="custom-select mb-2 mr-sm-2 mb-sm-0">
 
                                     <option *ngFor="let method of  infos" [value]="method.rib">{{method.rib}}</option>
                                 </select>
             </div>
-          
+
             </div>
             <div class="form-group row">
                     <label  class="col-6 col-form-label">Numero de téléphone</label>
                     <div class="col-6">
-                      <input class="form-control" type="text"   placeholder="Numero de telephone" [(ngModel)] = "recharge.telto"/>
+                      <input class="form-control" type="text" id="tel"   placeholder="Numero de telephone" [(ngModel)] = "recharge.telto"/>
                     </div>
                   </div>
-        
+
                   <div class="form-group row">
                         <label class="col-6 col-form-label">Enter Montant</label>
                         <div class="col-6">
-                                <select id="RechargeMethods" [(ngModel)] = "recharge.montant" class="custom-select mb-2 mr-sm-2 mb-sm-0">
-
-                                <option *ngFor="let method of  RechargeMethods" [value]="method">{{method}} DH</option>
-                            </select>  
+                            <select id="montant" [(ngModel)] = "recharge.montant" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+                                <option *ngFor="let method of RechargeMethods" [value]="method">{{method}} DH</option>
+                            </select>
                         </div>
                       </div>
                       <div class="form-group row">
-                          <div class="offset-md-6">
-                            <button (click)="addRecharge()" class="btn btn-primary">recharge</button>
+                        <div class="offset-md-6">
+                            <button (click)="addRecharge()" class="btn btn-primary" id="ok">recharge</button>
                         </div>
-                        </div>
+                      </div>
                         <div *ngIf="show"><div class="alert alert-primary" role="alert">Recharge a bien effectué </div>
-                        <div *ngIf="temp">
-                                <div class="alert alert-danger" role="alert">
-                                        Il y une erreur
-                                      </div>
-                            
-                            
-                           </div>
-        </div>
+                          <div *ngIf="temp">
+                              <div class="alert alert-danger" role="alert">
+                                Il y une erreur
+                              </div>
+                          </div>
+                        </div>
     </div>
 
 
@@ -82,9 +79,9 @@
             </div>
             <div class="signin-form">
                 <h2 class="form-title">Envoyer une recharge</h2>
-                
+
                 <div class="form-group">
-                        choississez un rib 
+                        choississez un rib
                         <select id="infos" [(ngModel)] = "recharge.ribfrom" class="form-control">
 
                             <option *ngFor="let method of  infos" [value]="method.rib">{{method.rib}}</option>
@@ -98,13 +95,13 @@
                         <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                         <input type="text"  placeholder="montant" [(ngModel)] = "recharge.montant"/>
                     </div>
-                   
+
                     <div *ngIf="show">Recharge a bien effectué </div>
                     <div *ngIf="temp">Il y une erreur</div>
                     <div class="form-group form-button">
                         <button (click)="addRecharge()">recharge</button>
                     </div>
-               
+
                 <div class="social-login">
                     <span class="social-label">{{recharge |json}}</span>
                 </div>
